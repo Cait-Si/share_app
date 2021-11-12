@@ -1,0 +1,21 @@
+<div class="content_width">
+  <div class="content_index">
+    <div class="search_result">
+      <h2>検索結果：</h2>
+    </div>
+    <% @rooms.each do |room| %>
+      <%= link_to room, class: "link_deco_none" do %>
+        <div class="content_blook">
+          <%= image_tag room.image%>
+          <p>
+            <span class="room_title_font"><%= room.name %></span>
+          </p>
+          <p>
+            <%= room.address %>
+          </p>
+          <span class="room_price_font"><p><%= room.price %></p></span>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

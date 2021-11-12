@@ -10,7 +10,42 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="reset">
+    <header class="header_width" >
+      <div class="logo_area">
+        <%= link_to root_path, class: "link_deco_none" do %>
+          <img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png" alt="ポテパンシェア" >
+        <% end %>
+        <%= form_with url: "/rooms/search/result", method: "post" do |f| %>
+          <%= f.text_field :word %>
+        <% end %>
+        <%= form_with url: "/rooms/search/result", method: "post" do |f| %>
+          <%= f.hidden_field :flag, :value => true %>
+          <%= f.text_field :word %>
+        <% end %>
+      </div>
+      <div class="btn_area">
+        <% if user_signed_in? %>
+          <label for="menu_icon" ><%= image_tag current_user.icon, class: "icon_img" %></label>
+          <input type="checkbox" id="menu_icon" />
+          <nav id="menu_bar">
+            <ul class="menu">
+              <li><%= link_to "ルーム登録", new_room_path %></li>
+              <li><%= link_to "予約済みルーム一覧", reserve_room_index_path%></li>
+              <li><%= link_to "登録済みルーム一覧", rooms_posts_path %></li>
+              <li><%= link_to "設定", users_account_path %></li>
+              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+            </ul>
+          </nav>
+        <% else %>
+          <%= link_to "ログイン", user_session_path, class: "btn_login" %>
+          <%= link_to "登録する", new_user_registration_path, class: "btn_signup" %>
+        <% end %>
+      </div>
+    </header>
     <%= yield %>
+    <footer class="footer_width">
+      <p>© 2020 POTEPAN.INC.</p>
+    </footer>
   </body>
 </html>

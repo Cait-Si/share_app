@@ -1,0 +1,29 @@
+<div class="room_posts_content">
+<h2>予約済みルーム一覧</h2>
+  <table>
+    <tr>
+      <th>ルーム画像</th>
+      <th>ルーム名</th>
+      <th>ルーム紹介</th>
+      <th>合計料金</th>
+      <th>開始日</th>
+      <th>終了日</th>
+      <th>予約確定日時</th>
+    </tr>
+    <% @reserve_rooms.each do |room| %>
+    <tr>
+      <td>
+        <%= link_to room.room, class: "link_deco_none" do %><%= image_tag room.room.image %><% end %>
+      </td>
+      <td>
+        <%= link_to room.room do %><%= room.room.name %><% end %>
+      </td>
+      <td><%= room.room.introduction %></td>
+      <td>¥<%= room.sum_price %></td>
+      <td><%= room.start_date%></td>
+      <td><%= room.end_date %></td>
+      <td><%= room.created_at %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>
