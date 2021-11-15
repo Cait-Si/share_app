@@ -14,10 +14,10 @@
         <li>使用日数：<%= @room_day %>日</li>
         <li>人数：<%= @room_people %>人</li>
         <li>合計金額</li>
-        <li><%= @room_sum %></li>
+        <li><%= @room_sum %>円</li>
         <li>上記内容でよろしければ「予約を確定」を押してください</li>
         <li><%= f.submit "予約を確定", class: "btn_submit" %></li>
-        <li><%= f.submit "戻る", name: :back, class: "btn_back" %></li>
+        <li><%= link_to "戻る", "/rooms/#{@reserve_room.room_id}", class: "btn_back" %></li>
   </ul>
 <% end %>
 </div>

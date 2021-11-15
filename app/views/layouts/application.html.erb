@@ -16,17 +16,24 @@
         <%= link_to root_path, class: "link_deco_none" do %>
           <img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png" alt="ポテパンシェア" >
         <% end %>
-        <%= form_with url: "/rooms/search/result", method: "post" do |f| %>
-          <%= f.text_field :word %>
+        <%= form_with url: "/rooms/search/result", method: :get do |f| %>
+          <%= f.text_field :word, placeholder: "エリアで検索" %>
         <% end %>
-        <%= form_with url: "/rooms/search/result", method: "post" do |f| %>
+        <%= form_with url: "/rooms/search/result", method: :get do |f| %>
           <%= f.hidden_field :flag, :value => true %>
-          <%= f.text_field :word %>
+          <%= f.text_field :word, placeholder: "キーワードで検索" %>
         <% end %>
       </div>
       <div class="btn_area">
         <% if user_signed_in? %>
-          <label for="menu_icon" ><%= image_tag current_user.icon, class: "icon_img" %></label>
+          <span class="header_user_name"><%= current_user.name %></span>
+          <label for="menu_icon" >
+            <% if current_user.icon.present? %>
+              <%= image_tag current_user.icon, class: "icon_img" %>
+            <% else %>
+              <%= image_tag 'default.jpeg', class: "icon_img" %>
+            <% end %>
+          </label>
           <input type="checkbox" id="menu_icon" />
           <nav id="menu_bar">
             <ul class="menu">

@@ -1,11 +1,12 @@
+<%= render "shared/flash" %>
 <div class="top_img">
   <div class="top_content_right">
     <div class="search_area">
       <div class="search_area_content">
         <span>Potepan Shareでまだ体験したことない旅をしよう</span>
-        <%= form_with url: "/rooms/search/result", method: "post" do |f| %>
+        <%= form_with url: "/rooms/search/result", method: :get do |f| %>
           <%= f.label :word, "エリア" %>
-          <%= f.text_field :word %>
+          <%= f.text_field :word, placeholder: "東京" %>
           <%= f.submit "探す", class: "btn_submit" %>
         <% end %>
       </div>

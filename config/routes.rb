@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   get 'users/profile'
   patch 'users/profile', to: 'users#update'
   get 'rooms/posts'
-  post 'rooms/search/result', to: 'rooms#search'
   get 'rooms/search/result', to: 'rooms#search'
   resources :rooms
   devise_for :users

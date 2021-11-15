@@ -3,6 +3,7 @@
     <h3>基本情報</h3>
   </div>
   <div class="content_main">
+    <%= render "shared/error_messages", obj: @room %>
     <%= form_with model:@room do |f| %>
     <%= f.hidden_field :user_id, value: current_user.id %>
     <table class="room_info_table">
@@ -11,19 +12,19 @@
       </tr>
       <tr>
         <th><%= f.label :name, "ルーム名" %><span class="red_mark"></span></th>
-        <td><%= f.text_field :name %></td>
+        <td><%= f.text_field :name, placeholder:"ルーム名を入力" %></td>
       </tr>
       <tr>
         <th><%= f.label :introduction, "ルーム紹介" %><span class="red_mark"></span></th>
-        <td><%= f.text_area :introduction %></td>
+        <td><%= f.text_area :introduction, placeholder: "ルーム紹介を入力" %></td>
       </tr>
       <tr>
         <th><%= f.label :price, "料金" %><span class="red_mark"></span></th>
-        <td><%= f.text_field :price %></td>
+        <td><%= f.text_field :price, placeholder: "一日あたりの料金を入力" %></td>
       </tr>
       <tr>
         <th><%= f.label :address, "住所" %><span class="red_mark"></span></th>
-        <td><%= f.text_field :address%></td>
+        <td><%= f.text_field :address, placeholder: "住所を入力" %></td>
       </tr>
       <tr>
         <th><%= f.label :image, "ルーム画像" %><span class="red_mark"></span></th>

@@ -111,6 +111,11 @@
   border: solid 3px whitesmoke;
 }
 
+.header_user_name {
+  color: white;
+  margin-right: 10px;
+}
+
 .footer_width {
   width: 100%;
   height: 65px;
@@ -371,6 +376,11 @@
   margin: 10px 0;
 }
 
+.form_list input[type="text"] {
+  width: 60%;
+  height: 30px;
+}
+
 .form_list input[type="email"] {
   width: 60%;
   height: 30px;
@@ -596,13 +606,12 @@
 }
 
 .reserve_confirm_list .btn_back {
-  width: 100%;
   color: white;
   text-decoration: none;
   border: solid gray;
   background-color: gray;
   border-radius: 4px;
-  padding: 5px 50px;
+  padding: 5px 180px;
 }
 
 .reserve_room {
@@ -628,4 +637,21 @@
 
 .reserve_room tr {
   height: 60px;
+}
+
+.error_message {
+  text-align: center;
+  list-style-type: none;
+}
+
+.notice {
+  background-color: rgb(204, 255, 217);
+  padding: 5px;
+  margin: 0;
+}
+
+.danger {
+  background-color: rgb(255, 204, 204);
+  padding: 5px;
+  margin: 0;
 }

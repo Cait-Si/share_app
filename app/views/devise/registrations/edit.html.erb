@@ -21,7 +21,7 @@
     <li><%= f.password_field :current_password, autocomplete: "current-password" %></li>
 
     <li><%= f.submit "更新", class: "btn_login" %></li>
-    <li><%= link_to "戻る", :back, class: "btn_signup" %></li>
+    <li><%= link_to "戻る", users_account_path, class: "btn_signup" %></li>
   </ul>
 <% end %>
 </div>

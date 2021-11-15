@@ -1,16 +1,17 @@
+<%= render 'shared/flash_danger' %>
 <div class="show_room">
   <%= image_tag @room.image %>
   <div class="price_form">
     <h3>¥<%= @room.price %>/日</h3>
-    <%= form_with model:@reserve_room, url: reserve_room_confirm_path do |f| %>
+    <%= form_with(url: reserve_room_confirm_path, method: :get) do |f| %>
       <%= f.hidden_field :room_id, value: @room.id %>
       <ul class="price_form_list">
         <li><%= f.label :start_date, "開始日" %></li>
-        <li><%= f.date_field :start_date %></li>
+        <li><%= f.date_field :start_date, value: Date.today %></li>
         <li><%= f.label :end_date, "終了日" %></li>
-        <li><%= f.date_field :end_date %></li>
+        <li><%= f.date_field :end_date, value: Date.today + 1 %></li>
         <li><%= f.label :people, "人数" %></li>
-        <li><%= f.number_field :people, min: 1 %></li>
+        <li><%= f.number_field :people, value: 1, min: 1 %></li>
         <li><%= f.submit "予約する", class: "btn_submit" %></li>
       </ul>
     <% end %>

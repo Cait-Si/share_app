@@ -6,4 +6,7 @@ class User < ApplicationRecord
   has_one_attached :icon
   has_many :rooms
   has_many :reserve_rooms
+
+  validates :name, presence: true
+  validates :introduction, length:{maximum: 30}
 end

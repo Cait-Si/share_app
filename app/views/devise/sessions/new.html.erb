@@ -4,8 +4,8 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
   <ul class="form_list">
-    <li><span class="red_mark"></span><%= f.email_field :email, autofocus: true, autocomplete: "email" %></li>
-    <li><span class="red_mark"></span><%= f.password_field :password, autocomplete: "current-password" %></li>
+    <li><span class="red_mark"></span><%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス" %></li>
+    <li><span class="red_mark"></span><%= f.password_field :password, autocomplete: "current-password", placeholder: "パスワード" %></li>
     <li><%= f.submit "ログイン", class: "btn_login" %></li>
   </ul>
 <% end %>
