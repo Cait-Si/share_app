@@ -1,0 +1,21 @@
+<%= render "shared/flash" %>
+<div class="reserve_room">
+  <table>
+    <tr>
+      <th>予約した部屋</th>
+      <td><%= @reserve_room.room.name %></td>
+    </tr>
+    <tr>
+      <th>開始日</th>
+      <td><%= @reserve_room.start_date %></td>
+    </tr>
+    <tr>
+      <th>終了日</th>
+      <td><%= @reserve_room.end_date %></td>
+    </tr>
+    <tr>
+      <th>価格</th>
+      <td><%= @reserve_room.sum_price %>円</td>
+    </tr>
+  </table>
+</div>
